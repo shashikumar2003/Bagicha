@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagicha - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fbf9f9;
+            overflow-x: hidden;
+        }
+        .hero-section {
+            background: url('https://www.ugaoo.com/cdn/shop/files/STAND15_-_Desktop.jpg?v=1742898704&width=2000') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 160px 50px;
+            position: relative;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .hero-section p {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .btn {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .features {
+            padding: 50px 20px;
+            background: white;
+            opacity: 0;
+        }
+        .banner-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Category Icons Section */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .category-item {
+            text-align: center;
+        }
+        .category-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .category-item p {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Best Picks Section */
+        .best-picks {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .offers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .offer-card {
+            width: 250px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .offer-card:hover {
+            transform: scale(1.05);
+        }
+        .offer-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .offer-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .discount {
+            color: green;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .code {
+            background: lightgreen;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .bestsellers {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: gold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: orange;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 1rem;
+            color: green;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-right: 5px;
+        }
+
+        .stars {
+            color: gold;
+        }
+
+        .view-btn {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .view-all {
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+        }
+
+        {
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 40px 20px;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter input {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .newsletter button {
+            background: green;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            margin-right: 10px;
+            color: black;
+        }
+
+        .social-icons a:hover {
+            color: green;
+        }
+
+        .app-buttons img {
+            width: 140px;
+            margin: 10px 0;
+        }
+
+        .payment-icons img {
+            width: 50px;
+            margin: 5px;
+        }
+
+        .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #1EBEA5;
+}
+
+
+.whatsapp-btn:hover {
+    background: #1EBEA5; /* Darker Green */
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.pLA7RVaI8H0BzkytwnOC2wHaCx&pid=Api&P=0&h=180" 
+                     alt="Bagicha Logo" width="50"> 
+                <strong>Bagicha</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="Plant.html">Plants</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Seeds.html">Seeds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Pots-and-Planters.html">Pots & Planters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Plant-Care.html">Plant Care</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Offers.html">Offers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero-section">
+
+
+        <a href="Shop Now.html" class="btn btn-success">Shop Now</a>
+
+
+    </section>
+    
+    <div class="banner-text">Celebrate Nature, Every Day<br>Discover a wide variety of plants, seeds, and plant care products.</div>
+    
+    <section class="features text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="text-success">Wide Variety</h3>
+                    <p>Explore our extensive collection.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-success">Expert Guidance</h3>
+                    <p>Professional tips for plant care.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-success">Eco-Friendly</h3>
+                    <p>Sustainable practices for nature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        gsap.to(".hero-section h1", {opacity: 1, y: 0, duration: 1, delay: 0.3});
+        gsap.to(".hero-section p", {opacity: 1, y: 0, duration: 1, delay: 0.5});
+        gsap.to(".btn", {opacity: 1, scale: 1, duration: 1, delay: 0.7});
+        gsap.to(".features", {opacity: 1, duration: 1, delay: 1});
+    </script>
+    
+    <title>Best Picks Section</title>
+    <div class="categories">
+        <div class="category-item">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.U-zQv0yajRVlouW1VdECDgHaHe&pid=Api&P=0&h=180" alt="Bestsellers">
+            <p>Bestsellers</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.7DBId33-yIdcPTiTN_GYuQHaLG&pid=Api&P=0&h=180" alt="Easy to Care">
+            <p>Easy to Care</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.179hlZME3QVoTOsA6TBnWwHaEK&pid=Api&P=0&h=180" alt="XL Plants">
+            <p>XL Plants</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.XsCQ5SNajz7SiCgztwNxEgHaEM&pid=Api&P=0&h=180" alt="Ceramic Pots">
+            <p>Ceramic Pots</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.AXCVsJOc9tigpBoanOD4JAHaFj&pid=Api&P=0&h=180" alt="Vegetable Seeds">
+            <p>Vegetable Seeds</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.hboy9Qu5qbBPNPKq0xEm4gHaE8&pid=Api&P=0&h=180" alt="Fertilizers">
+            <p>Fertilizers</p>
+        </div>
+        <div class="category-item">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.jS-NKfOy7FaVrybBrlLi0gHaEj&pid=Api&P=0&h=180" alt="Tools">
+            <p>Tools</p>
+        </div>
+    </div>
+
+    <!-- Best Picks Section -->
+    <div class="best-picks">
+        <h2>Your Best Picks</h2>
+        <div class="offers-container">
+            <div class="offer-card">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.YM_0CTxBc6yxXhFJOSroQgHaHa&pid=Api&P=0&h=180" alt="Buy Any 3 Plants">
+                <div class="offer-text">BUY ANY 3 Plants</div>
+                <div class="discount">Get 15% Off</div>
+                <div class="code">Use Code: PLANT15</div>
+            </div>
+            <div class="offer-card">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.y41oRXLMzjSFMCuTyb4ORwHaFP&pid=Api&P=0&h=180" alt="Buy 2 Plant Stands">
+                <div class="offer-text">BUY ANY 2 Plant Stands</div>
+                <div class="discount">Get 15% Off</div>
+                <div class="code">Use Code: STAND15</div>
+            </div>
+            <div class="offer-card">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.teVpN7GZaTEyrbAzozdNfQHaHa&pid=Api&P=0&h=180" alt="Buy 2 XL Plants">
+                <div class="offer-text">BUY 2 XL Plants</div>
+                <div class="discount">Get 15% Off</div>
+                <div class="code">Use Code: XL15</div>
+            </div>
+            <div class="offer-card">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.OPkGvhtsxaDw-xwt5i01-AHaHa&pid=Api&P=0&h=180" alt="Buy 4 Seeds">
+                <div class="offer-text">BUY 4 Seeds</div>
+                <div class="discount">Get 1 Free</div>
+                <div class="code">Use Code: SEED4</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        gsap.from(".categories", {opacity: 0, y: -20, duration: 1});
+        gsap.from(".best-picks h2", {opacity: 0, y: -20, duration: 1, delay: 0.5});
+        gsap.from(".offer-card", {opacity: 0, scale: 0.8, duration: 0.8, delay: 0.5, stagger: 0.2});
+    </script>
+
+<div class="bestsellers">
+    <h2>Bestsellers</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <span class="discount-badge">76%</span>
+                    <span class="tag">Trending</span>
+                    <img src="https://via.placeholder.com/250x250" class="product-img" alt="Brazilian Wood Plant">
+                    <div class="product-title">Brazilian Wood Plant</div>
+                    <div class="price">
+                        <span class="old-price">₹1,999</span> From ₹499
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <button class="view-btn">VIEW PRODUCT</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <span class="discount-badge">26%</span>
+                    <img src="https://via.placeholder.com/250x250" class="product-img" alt="Peace Lily Plant">
+                    <div class="product-title">Peace Lily Plant</div>
+                    <div class="price">
+                        <span class="old-price">₹399</span> From ₹299
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <button class="view-btn">VIEW PRODUCT</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <span class="discount-badge">21%</span>
+                    <span class="tag">Bestseller</span>
+                    <img src="https://via.placeholder.com/250x250" class="product-img" alt="Bamboo Palm Plant">
+                    <div class="product-title">Bamboo Palm Plant</div>
+                    <div class="price">
+                        <span class="old-price">₹499</span> From ₹399
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <button class="view-btn">VIEW PRODUCT</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <span class="discount-badge">7%</span>
+                    <span class="tag">Bestseller</span>
+                    <img src="https://via.placeholder.com/250x250" class="product-img" alt="Jade Plant Mini">
+                    <div class="product-title">Jade Plant Mini</div>
+                    <div class="price">
+                        <span class="old-price">₹299</span> From ₹279
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <button class="view-btn">VIEW PRODUCT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="view-all">VIEW ALL</button>
+</div>
+
+<script>
+    gsap.from(".bestsellers h2", {opacity: 0, y: -20, duration: 1});
+    gsap.from(".product-card", {opacity: 0, scale: 0.8, duration: 0.8, delay: 0.5, stagger: 0.2});
+    gsap.from(".view-all", {opacity: 0, scale: 0.8, duration: 0.8, delay: 1});
+</script>
+    
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- About Us -->
+            <div class="col-md-3">
+                <h5>ABOUT US</h5>
+                <a href="#">Our Story</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Locate Stores</a>
+                <a href="#">Own Grown</a>
+                <a href="#">Garden Services & Maintenance</a>
+            </div>
+
+            <!-- Customer Care -->
+            <div class="col-md-3">
+                <h5>CUSTOMER CARE</h5>
+                <a href="#">Take The Plant Quiz</a>
+                <a href="#">Track Order</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">FAQs</a>
+                <a href="#">Refund Policy</a>
+            </div>
+
+            <!-- Offers & Contact -->
+            <div class="col-md-3">
+                <h5>OFFERS & REWARDS</h5>
+                <a href="#">Plant Parent Rewards Club</a>
+                <a href="#">Bagicha Coupons</a>
+                <h5 class="mt-4">GET IN TOUCH</h5>
+                <p>WhatsApp us at: <strong>+91 9693223625</strong></p>
+                <p>Call: <strong>+91 7643922433</strong></p>
+                <p>Email: <a href="mailto:support@ugaoo.com">support@Bagicha.com</a></p>
+            </div>
+
+            <!-- Newsletter & Social -->
+            <div class="col-md-3">
+                <h5>SIGN UP FOR OUR NEWSLETTER</h5>
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter email address">
+                    <button>→</button>
+                </div>
+                <p>For plant care tips, exclusive offers, and discounts.</p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <h5 class="mt-4">Download App!</h5>
+                <div class="app-buttons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            <p>© 2025,Bagicha All rights reserved.</p>
+            <div class="payment-icons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Old_Visa_Logo.svg" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/American_Express_logo.svg" alt="Amex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Google_Pay_Logo.svg" alt="Google Pay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Shopify_logo_2022.svg" alt="Shopify">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WhatsApp Button -->
+<a href=". https://wa.me/qr/7IJ3USOEQPGLC1 " class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
