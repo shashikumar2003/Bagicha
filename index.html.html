@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WELLCOM</title>
+  <title>TO</title>
+  <title>Bagicha</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("https://travelentice.com/wp-content/uploads/2023/02/Patratu-Valley-Ranchi.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .registration-form {
+      background: rgba(228, 223, 223, 0.21);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px #000000e3;
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: hwb(134 4% 2%);
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    .btn-primary, .btn-secondary, .btn-success {
+      border-radius: 20px;
+    }
+
+    .btn-primary:hover, .btn-secondary:hover, .btn-success:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-form">
+    <h2 class="form-title">Bagicha Registration </h2>
+    <form id="registrationForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+      </div>
+      <!-- Phone Number Field -->
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- Unordered List for Navigation -->
+      <ul class="list-unstyled text-center">
+        <li>
+          <a href="index.html" class="btn btn-success w-100">Submit</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Handle registration form submission
+    document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const phoneNumber = document.getElementById('phoneNumber').value; // Get phone number value
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      try {
+        const registerResponse = await fetch('http://localhost:3000/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, phoneNumber, password }), // Send phone number
+        });
+
+        if (registerResponse.ok) {
+          alert('Registration successful! Redirecting to the home page...');
+          // Redirect to the index page after registration
+          window.location.href = 'index.html';
+        } else {
+          const errorData = await registerResponse.json();
+          alert(`Registration failed: ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error during registration:', error);
+        alert('An error occurred during registration.');
+      }
+    });
+  </script>
+</body>
+</html>
